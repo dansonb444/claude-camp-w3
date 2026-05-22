@@ -1,6 +1,6 @@
 # Claude Camp W3 练习说明
 
-本目录包含两个 Python 小项目：**CSV 学员数据分析器**、**JSON 配置文件读写器**。
+本目录包含三个 Python 小项目：**CSV 学员数据分析器**、**JSON 配置文件读写器**、**带单元测试的字符串工具库**。
 
 ---
 
@@ -52,6 +52,30 @@ python3 json_config_editor.py
 
 ---
 
+## 项目 3：带单元测试的字符串工具库
+
+**模块** `string_utils.py`：
+
+| 函数 | 说明 |
+|------|------|
+| `reverse_words(s)` | 按空白分词后反转顺序，如 `"hello world"` → `"world hello"` |
+| `count_vowels(s)` | 统计英文字母元音 a/e/i/o/u（大小写均计） |
+| `is_palindrome(s)` | 忽略非字母数字与大小写后判断是否回文 |
+
+**测试** `test_string_utils.py`：使用 pytest，每个函数至少 3 类用例（正常、边界、异常/特殊输入）。
+
+**运行测试**：
+
+```bash
+cd claude-camp-w3
+.venv/bin/pip install pytest   # 或 pip install -r requirements.txt
+.venv/bin/python -m pytest test_string_utils.py -v
+```
+
+**示例**：`pytest` 应显示 16 passed（含各函数的正常、空串/单词、多余空格或非 str 参数等用例）。
+
+---
+
 ## 环境准备（项目 1 首次）
 
 ```bash
@@ -70,6 +94,8 @@ python3 -m venv .venv
 |------|------|
 | `csv_student_analyzer.py` | 项目 1：CSV 分析 |
 | `json_config_editor.py` | 项目 2：配置读写 |
+| `string_utils.py` | 项目 3：字符串工具函数 |
+| `test_string_utils.py` | 项目 3：pytest 测试 |
 | `users_sample.csv` | 学员示例数据 |
 | `config.json` | 用户偏好默认配置 |
 | `report.json` | 项目 1 运行后生成的报告 |
@@ -81,4 +107,4 @@ python3 -m venv .venv
 ## 环境说明
 
 - 使用 **Python 3**。
-- 项目 1 依赖 **Pandas 2.x**；项目 2 仅用标准库 `json`、`pathlib` 等。
+- 项目 1 依赖 **Pandas 2.x**；项目 2 仅用标准库；项目 3 测试依赖 **pytest**。
